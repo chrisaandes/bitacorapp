@@ -1,0 +1,37 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Device Info
+    </ion-nav-title>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+
+        <div class="list card">
+            <a href="#" class="item ">
+                <b>Cordova:</b>
+                {{info.cordova}}
+            </a>
+            <a href="#" class="item ">
+                <b>UUID:</b>
+                {{info.uuid}}
+            </a>
+            <a href="#" class="item ">
+                <b>Model:</b>
+                {{info.model}}
+            </a>
+            <a href="#" class="item ">
+                <b>Platform:</b>
+                {{info.platform}}
+            </a>
+            <a href="#" class="item ">
+                <b>Version:</b>
+                {{info.version}}
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

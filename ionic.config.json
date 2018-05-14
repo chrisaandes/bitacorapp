@@ -1,0 +1,13 @@
+{
+  "name": "BitacoraApp",
+  "app_id": "b606ce01",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ],
+  "integrations": {},
+  "type": "ionic1"
+}

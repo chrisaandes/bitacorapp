@@ -1,0 +1,51 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Franjas
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons> -->
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+
+       <div class="list">
+                
+            <label class="item item-input item-select">
+                <div class="input-label">
+                        Categoria
+                </div>
+                <select ng-model="categoria_id" ng-change="changeCat(categoria_id)">
+                    <option value="{{value.id}}" ng-repeat="value in categoriesA" >{{value.name}}</option>
+                </select> 
+            </label>
+        
+        </div>
+        <HR>
+        <div class="content double-padding">
+            <div class="row header">
+                <div class="col">#</div>
+                <div class="col">Nombre</div>
+            </div>
+            <div class="row" ng-repeat="category in categories">
+                <div class="col">{{category.id}}</div>
+                <div class="col">{{category.name}}</div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

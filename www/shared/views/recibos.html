@@ -1,0 +1,191 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+
+    
+    table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.8em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.5em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Recibos
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons> -->
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="content double-padding">
+            <div class="list">
+                    
+                <label class="item item-input item-select" ng-if="!byUser">
+                    <div class="input-label">
+                        Profesor
+                    </div>
+                    <select class="form-control" ng-model="profesor" ng-change="init(profesor)" id="franjafilter">
+                            <option value="{{value.id}}" ng-repeat="value in profesores">{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-select" ng-if="byUser">
+                    <div class="input-label">
+                        Profesor
+                    </div>
+                    <select class="form-control" ng-model="profesor" ng-change="init(profesor)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in profesores  | filter:{ id: profile.id }">{{value.name}}</option>
+                    </select> 
+                </label>
+
+               
+            
+            </div>  
+            <HR>
+
+            <table class="table">
+                
+                <tr>
+                    <th>Rec.</th>
+                    <th>Fec.</th>
+                    <th>Horas</th>
+                    <th>Valor</th>                            
+                    <th>Des.</th>                            
+                    <th>Has.</th>   
+                    <th></th>                         
+                    
+                </tr>
+                
+                <tbody ng-repeat="category in recibos">
+                    <tr >
+                        <td>{{category.recibo_caja}}</td>
+                        <td>{{category.fecha_pago || '-'}}</td>
+                        <td>{{category.total_horas}}</td>
+                        <td>{{category.valor | currency:"$":0}}</td>
+                        <td>{{category.desde}}</td>
+                        <td>{{category.hasta}}</td>
+                        <td>
+                            <a href="" data-target="#" ng-init="toggle[$index] = false" ng-click="selectRecibo(category.recibo_caja, $index)" >
+
+                                <!-- <i class="fa fa-eye info"></i> -->
+                                <span class="glyphicon glyphicon-plus-sign" ng-if="!toggle[$index]" style="font-size: xx-large;"><i class="ion ion-plus"></i></span>
+                                <span class="glyphicon glyphicon-minus-sign" ng-if="toggle[$index]" style="font-size: xx-large;"><i class="ion ion-minus"></i></span>
+                            </a>
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr ng-if="toggle[$index]">
+                        <td colspan="6">
+                            <table class="table">
+                                <tr>
+                                    <th>Grupo</th>
+                                    <th>Fecha</th>
+                                    <th>Horas</th>
+                                </tr>
+
+                                <tr ng-repeat="hora in horasRecibo[$index]">
+                                    <td>{{ hora.name }}</td>
+                                    <td ng-bind="formatDate(hora.dia)">{{ hora.dia }}</td>
+                                    <td>{{ hora.horas }}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p ng-if="emptyHorarios">Sin Horarios</p>
+
+           
+           
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Categories
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="category in categories" item="category">
+                <h2>{{category.name}}</h2>
+                {{category.description}}
+                <!--<ion-delete-button class="ion ion-trash-a" ng-click="onItemDelete(category)"></ion-delete-button>-->
+                <ion-option-button class="button button-stable icon ion-trash-a"
+                                   ng-click="delete(category)" show-if-has-permit="delete_category"></ion-option-button>
+                <ion-option-button class="button button-stable icon ion-edit"
+                                   ng-click="edit(category)" show-if-has-permit="edit_category"></ion-option-button>
+                <!--<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>-->
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+<button id="fab" class="button button-assertive button-fab button-fab-bottom-right" ng-click="new()" show-if-has-permit="add_category">
+    <i class="icon ion-plus-round"></i>
+</button>
+
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="customTrans">
+        <ion-content>
+            <div class="list" ng-click="popover.hide()">
+                <a class="item" href="http://learn.ionicframework.com/" target="_blank">
+                    Learn Ionic
+                </a>
+                <a class="item" href="http://ionicframework.com/docs/" target="_blank">
+                    Documentation
+                </a>
+                <a class="item" href="http://showcase.ionicframework.com/" target="_blank">
+                    Showcase
+                </a>
+                <a class="item" href="http://ionicframework.com/submit-issue/" target="_blank">
+                    Submit an Issue
+                </a>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>

@@ -1,0 +1,133 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear" ui-sref="admin.tasks">
+            <i class="ion-ios-arrow-back"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        New Task
+    </ion-nav-title>
+</ion-nav-bar>
+<ion-view view-title="New Task">
+    <ion-content  class="has-header">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Title</span>
+                <input ng-model="task.title" type="text" placeholder="Title">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Description</span>
+                <textarea  ng-model="task.description" type="text" placeholder="Description"></textarea>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Start Date</span>
+                <input ng-model="task.start_date" type="date"  placeholder="Start Date">
+            </label>
+            <label class="item item-input  item-stacked-label">
+                <span class="input-label">End Date</span>
+                <input ng-model="task.end_date" type="date"  placeholder="End Date">
+            </label>
+
+            <label class="item item-select item-stacked-label" id="cart-select2">
+                <span class="input-label">Status</span>
+                <select ng-model="task.task_status" ng-options='status.id as status.name for status in statusList' class="form-control">
+                </select>
+            </label>
+            <label class="item item-select item-stacked-label" id="cart-select3">
+                <span class="input-label">Category</span>
+                <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete"
+                       placeholder="Enter your category ..."
+                       item-value-key="id"
+                       item-view-value-key="name"
+                       items-method="searchCategory(query)"
+                       items-method-value-key="items"
+                       ng-model="task.category_id"
+                       external-model="categoryTemp"
+                       model-to-item-method="initialCategory(modelValue)"
+                       max-selected-items="1"
+                       cancel-label="OK"/>
+            </label>
+            <label class="item item-select item-stacked-label" id="cart-select4">
+                <span class="input-label">User</span>
+                <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete"
+                       placeholder="Select user ..."
+                       item-value-key="id"
+                       item-view-value-key="name"
+                       items-method="searchUser(query)"
+                       items-method-value-key="items"
+                       ng-model="task.user_id"
+                       external-model="userTemp"
+                       model-to-item-method="initialUser(modelValue)"
+                       max-selected-items="1"
+                       cancel-label="OK"/>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Keyword</span>
+                <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete"
+                       placeholder="Select tag ..."
+                       item-view-value-key="tag"
+                       item-view-value-key="tag"
+                       items-method="searchTag(query)"
+                       items-method-value-key="items"
+                       ng-model="task.tags"
+                       max-selected-items="10"
+                       cancel-label="OK"/>
+            </label>
+            <li class="item item-button-right">
+                <div class="row">
+                    <div class="col col-20">Attachment</div>
+                    <div class="col col-offset-75">
+                        <a class="button button-positive" ng-click="selectPicture()">
+                            <i class="icon ion-image"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="image in arrayFiles">
+                    <div class="col col-20">
+                        <img ng-src="{{image.filePath}}" alt="image" class="img-responsive">
+                    </div>
+                    <div class="col col-75">
+                        <p data-value="{{image.progress | number:0 }}">
+                            {{image.filename | limitTo: 6}}
+                            <span ng-if="image.filename.length > 6">...</span>
+                        </p>
+                        <progress max="100" value="{{image.progress}}" class="html5">
+                            <div class="progress-bar">
+                                <span ng-style="{width: image.progress + '%'}" >{{image.progress}}%</span>
+                            </div>
+                        </progress>
+
+                    </div>
+                    <div class="col">
+                        <button class="button button-icon icon ion-trash-a" ng-click="removeFile(image.serverId)"></button>
+                    </div>
+                </div>
+            </li>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label"></span>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
+<button class="button button-balanced-900 button-fab button-fab-bottom-right" ng-hide="task.id" ng-click="create(task)">
+    <i class="icon ion-android-done"></i>
+</button>
+<button class="button button-calm button-fab button-fab-bottom-right" ng-disabled="isDisabled" ng-hide="!task.id" ng-click="update(task)">
+    <i class="icon ion-edit"></i>
+</button>
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="customTrans">
+        <ion-content>
+            <div class="list" ng-click="popover.hide()">
+                <a class="item" ng-click="toggleSearch()">
+                    <i class="ion ion-search"></i>
+                    Search
+                </a>
+                <a class="item" ng-click="delete(selection)">
+                    <i class="ion ion-trash-a"></i>
+                    Delete
+                </a>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>

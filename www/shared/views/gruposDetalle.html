@@ -1,0 +1,98 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Grupos Detalle
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons> -->
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="content double-padding">
+            <div class="list">
+                    
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Categoria
+                    </div>
+                    <select class="form-control" ng-model="categoria_id" ng-change="changeCat(categoria_id)">
+                        <option value=""></option>
+                        <option value="{{value.id}}" ng-repeat="value in categoriesA" >{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Franja
+                    </div>
+                    <select class="form-control" ng-model="franja" ng-change="changeFranja(franja)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in franjas">{{value.name}}</option>
+                    </select> 
+                </label>
+
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Grupo
+                    </div>
+                    <select class="" ng-model="grupo" ng-change="selectGroup(grupo)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in grupos">{{value.name}}</option>
+                    </select> 
+                </label>
+            
+            </div>  
+            <HR>
+
+            <div class="content double-padding" >
+                <div class="row header">
+                    <div class="col" style="width:22%">Inicio</div>
+                    <div class="col" style="width:15%">Total Horas</div>
+                    <div class="col" style="width:15%">Avance</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col" style="min-width: 24%;">{{ horarios.horas[0].dia }}</div>
+                    <div class="col" style="min-width: 24%;">{{ horarios.total[0].total_horas }}</div>   
+                    <div class="col" style="min-width: 24%;">{{ horarios.avance }}%</div>                      
+                    
+                </div>
+
+
+                <div class="row header">
+                    <div class="col" style="width:22%">Fecha</div>
+                    <div class="col" style="width:15%">Hora</div>
+                    <div class="col" style="width:15%">Asis.</div>
+                    <div class="col" style="min-width:24%">Prof.</div>
+                    <div class="col" style="min-width:24%">Obser.</div>
+                </div>
+                <div class="row" ng-repeat="category in horarios.horas">
+                    <div class="col" style="width:22%" ng-bind="formatDate(category.dia)"></div>
+                    <div class="col" style="width:15%">{{category.horas}}</div>
+                    <div class="col" style="width: 15%;">{{category.asistencia}}</div>
+                    <div class="col" style="min-width: 24%;">{{category.user.name}}</div>
+                    <div class="col" style="min-width: 24%;">{{category.observacion}}</div>   
+                    
+                    
+                </div>
+    
+            </div>
+
+            
+           
+        </div>
+    </ion-content>
+</ion-view>

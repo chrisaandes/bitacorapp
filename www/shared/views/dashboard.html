@@ -1,0 +1,73 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Dashboard
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="content double-padding">
+            <div class="list">
+                        
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Profesor
+                    </div>
+                    <select ng-model="profesor" ng-change="init(profesor)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in profesores">{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <hr>
+
+
+                <label class="item item-input item-select" ng-if="!byUser">
+                    <div class="input-label">
+                        Grupo
+                    </div>
+                    <select ng-model="grupo" ng-change="selectGroup(profesor,grupo)" id="franjafilter">
+                        <option value="all">Todos</option>
+                        <option value="{{value.id}}" ng-repeat="value in grupos">{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-select" ng-if="byUser">
+                    <div class="input-label">
+                        Grupo
+                    </div>
+                    <select ng-model="grupo" ng-change="selectGroup(profesor,grupo)" id="franjafilter">
+                        <option value="all">Todos</option>
+                        <option value="{{value.id}}" ng-repeat="value in grupos">{{value.name}}</option>
+                    </select> 
+                </label>
+            
+            </div>
+<!-- 
+            <div ui-jq="fullCalendar" ui-options="fullCalendarOption" ng-if="fullCalendarOption"></div>
+            <div style="clear:both"></div>
+
+
+            <hr>
+ -->
+            <hr>
+            <div id='calendar'></div>
+           
+        </div>
+    </ion-content>
+</ion-view>

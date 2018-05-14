@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <button class="button button-clear button-primary" ng-click="modal.hide()"><i class="ion ion-ios-arrow-back"></i></button>
+        <h1 class="title">New Category</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <fieldset ng-disabled="isDisabled">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable">Name</span>
+                    <input ng-model="category.name" type="text" placeholder="Name" >
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable">Description</span>
+                    <input ng-model="category.description" type="text" placeholder="Description" >
+                </label>
+                <button class="button button-full button-balanced" ng-click="create(category)" ng-show="!category.id">Save</button>
+                <button class="button button-full button-calm" ng-click="update(category)" ng-show="category.id">Update</button>
+            </fieldset>
+        </div>
+    </ion-content>
+</ion-modal-view>

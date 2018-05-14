@@ -1,0 +1,28 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Camera
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="takePicture()">Take Picture</button>
+
+            <div class="card" ng-show="imageTake">
+                <div class="item item-divider">
+                    This is your image
+                </div>
+                <div class="item item-text-wrap">
+                    <img ng-src="{{imageTake}}" alt="image camera" class="responsive-lg">
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

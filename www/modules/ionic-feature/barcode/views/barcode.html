@@ -1,0 +1,32 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Barcode
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="barcodeScan()">Scan Barcode</button>
+
+            <div class="card " ng-show="barcode">
+                <div class="item item-divider">
+                    YOUR BARCODE IS:
+                </div>
+                <div class="item item-text-wrap">
+                    <h2>Format: {{barcode.format}}</h2>
+                    <h2>Text: {{barcode.text}}</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,150 @@
+<ion-side-menus enable-menu-with-back-views="true">
+
+    <ion-side-menu-content>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-header-bar class="expanded">
+            <img ng-src="{{profile.avatar_url !=='' && ngLaravelBackEndFileURL+profile.avatar_url || ngLaravelBackEndFileURL+'no_avatar.jpg'}}"
+                 class="avatar motion spin fade">
+            <div class="menu-bottom">
+                <h5 class="stable">{{profile.name}}</h5>
+                Bitácora - ACI
+            </div>
+        </ion-header-bar>
+
+        <ion-content has-header="true" class="stable-bg has-expanded-header">
+            <ion-list class="transparent">
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.dashboard">
+                    <i class="icon ion-clock"></i>
+                    Agenda
+                </ion-item>
+
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="" show-if-has-any-permit="view_registro,view_registro_all">
+                    Registro
+                </ion-item>
+               
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.registro" show-if-has-any-permit="view_registro,view_registro_all">
+                    <i class="icon ion-clock"></i>
+                    Registrar
+                </ion-item>
+
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="" show-if-has-any-permit="view_recibos,view_recibos_all">
+                    Tesoreria
+                </ion-item>
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.recibos" show-if-has-any-permit="view_recibos,view_recibos_all">
+                    <i class="icon ion-document-text"></i>
+                    Recibos
+                </ion-item>
+                <!-- <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.pagar">
+                    <i class="icon ion-cash"></i>
+                    Pagar
+                </ion-item> -->
+
+
+
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="" show-if-has-any-permit="view_grupos,view_grupos_detail">
+                    Grupos
+                </ion-item>
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.grupos" show-if-has-any-permit="view_grupos">
+                    <i class="icon ion-navicon"></i>
+                    Listado
+                </ion-item>
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.gruposDetalle" show-if-has-any-permit="view_grupos_detail">
+                    <i class="icon ion-information-circled"></i>
+                    Detalle
+                </ion-item>
+
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="" show-if-has-permit="view_franjas">
+                    Franjas
+                </ion-item>
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.franjas" show-if-has-permit="view_franjas">
+                    <i class="icon ion-university"></i>
+                    Ver
+                </ion-item>
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="" show-if-has-permit="view_categorias">
+                    Categorias
+                </ion-item>
+                <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.categorias" show-if-has-permit="view_categorias">
+                    <i class="icon ion-levels"></i>
+                    Ver
+                </ion-item>
+
+
+                
+                
+
+                <!-- <ion-item  class="yep item-icon-left" nav-clear menu-close ui-sref="admin.dashboard">
+                    <i class="icon ion-speedometer"></i>
+                    Dashboard
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.tasks" show-if-has-any-permit="view_task, delete_task">
+                    <i class="icon ion-android-list"></i>
+                    Tasks
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.categories" show-if-has-any-permit="view_category, delete_category">
+                    <i class="icon ion-android-folder"></i>
+                    Category
+                </ion-item> -->
+
+                <!-- <ion-item class="assertive" menu-close nav-clear href="#" data-target="">
+                    App Database
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.sqlite">
+                    <i class="icon ion-person"></i>
+                    SQLite DB
+                </ion-item>
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="">
+                    Hardware Connect
+                </ion-item>
+                <ion-item menu-close class="yep item-icon-left" nav-clear ui-sref="admin.camera">
+                    <i class="icon ion-camera"></i>
+                    Camera
+                </ion-item>
+                <ion-item menu-close class="yep item-icon-left" nav-clear ui-sref="admin.barcode">
+                    <i class="icon ion-ios-barcode"></i>
+                    Bascode Scanner
+                </ion-item>
+                <ion-item menu-close class="yep item-icon-left" nav-clear ui-sref="admin.vibration">
+                    <i class="icon ion-asterisk"></i>
+                    Vibration
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.device">
+                    <i class="icon ion-information-circled"></i>
+                    Device Info
+                </ion-item>
+
+
+                <ion-item class="assertive" menu-close nav-clear href="#" data-target="">
+                   OS Feature
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.sms">
+                    <i class="icon ion-android-textsms"></i>
+                    SMS
+                </ion-item>
+                <ion-item menu-close class="yep item-icon-left" nav-clear ui-sref="admin.contact">
+                    <i class="icon ion-android-contacts"></i>
+                    Contacts
+                </ion-item>
+                <ion-item class="yep item-icon-left" nav-clear menu-close ui-sref="admin.push">
+                    <i class="icon ion-android-notifications"></i>
+                    Push Notification
+                </ion-item>
+
+                <ion-item class="yep item-icon-left" nav-clear menu-close data-signout data-target="#"
+                          class="transparent">
+                    <i class="icon ion-android-exit"></i>
+                    Sign out
+                </ion-item> -->
+            </ion-list>
+        </ion-content>
+
+    </ion-side-menu>
+</ion-side-menus>

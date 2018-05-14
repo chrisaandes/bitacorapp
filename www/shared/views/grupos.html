@@ -1,0 +1,90 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Grupos
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons> -->
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="content double-padding">
+            <div class="list">
+                    
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Categoria
+                    </div>
+                    <select class="form-control" ng-model="categoria_id" ng-change="changeCat(categoria_id)">
+                        <option value=""></option>
+                        <option value="{{value.id}}" ng-repeat="value in categoriesA" >{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Franja
+                    </div>
+                    <select class="form-control" ng-model="franja" ng-change="changeFranja(franja)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in franjas">{{value.name}}</option>
+                    </select> 
+                </label>
+            
+            </div>  
+            <HR>
+            <div class="content double-padding" ng-show="!viewDetail">
+                <div class="row header">
+                    <div class="col" style="width:20%">#</div>
+                    <div class="col" style="min-width:60%">Nombre</div>
+                    <div class="col" style="width:20%"></div>
+                </div>
+                <div class="row" ng-repeat="category in categories">
+                    <div class="col" style="width:20%">{{category.id}}</div>
+                    <div class="col" style="min-width: 60%;">{{category.name}}</div>
+                    <div class="col" style="width:20%">
+                        <a class="" style="font-size: xx-large;" href="" data-target="#" ng-click="viewDetail=true;selectGroup(category.id);" ><i class="ion ion-search"></i></a> 
+                    </div>
+                </div>
+    
+            </div>
+
+
+            <div class="content double-padding" ng-show="viewDetail">
+                <button class="button button-full button-positive" type="button" ng-click="hideGrupos()">
+                    Ver Grupos
+                </button>
+                <div class="row header">
+                    <div class="col" style="width:25%">Fecha</div>
+                    <div class="col" style="width:15%">Horas</div>
+                    <div class="col" style="width:15%">Asist</div>
+                    <div class="col" style="min-width:40%">Profesor</div>
+                </div>
+                <div class="row" ng-repeat="category in horarios.horas">
+                    <div class="col" style="width:25%" ng-bind="formatDate(category.dia)"></div>
+                    <div class="col" style="width:15%">{{category.horas}}</div>
+                    <div class="col" style="width: 15%;">{{category.asistencia}}</div>
+                    <div class="col" style="min-width: 40%;">{{category.user.name}}</div>
+                    
+                    
+                </div>
+    
+            </div>
+
+           
+        </div>
+    </ion-content>
+</ion-view>

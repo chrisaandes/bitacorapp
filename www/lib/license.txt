@@ -1,0 +1,14 @@
+ionic framework v1.3.1 - MIT License - http://ionicframework.com/
+Ionic-Material v0.4.2 - MIT License - https://github.com/zachfitz/Ionic-Material
+ngCordova v0.1.26-alpha - MIT License - http://ngcordova.com/
+restangular v1.5.2 - MIT License - https://github.com/mgonto/restangular
+ngAA v0.3.0 - MIT License - https://github.com/lykmapipo/ngAA
+angular-jwt v0.0.9 - MIT License - https://github.com/auth0/angular-jwt
+ngStorage v0.3.10 - MIT License - https://github.com/gsklee/ngStorage
+angular-cache v4.5.0 - MIT License - https://github.com/jmdobry/angular-cache
+ionic-toast v0.3.0 - MIT License - https://github.com/rajeshwarpatlolla/ionic-toast
+waves v0.6.6 - MIT License - https://github.com/fians/Waves
+momentjs v2.9.0 - MIT License - https://github.com/moment/moment
+angular-moment v0.9.0 - MIT License - https://github.com/urish/angular-moment
+ion-autocomplete v0.3.2 - MIT license - https://github.com/guylabs/ion-autocomplete
+angular-img-fallback v0.2.0 - MIT License - https://github.com/dcohenb/angular-img-fallback

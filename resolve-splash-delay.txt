@@ -1,0 +1,7 @@
+you should change or add this parameters in config.xml:
+
+  <preference name="ShowSplashScreenSpinner" value="false" />
+
+  <preference name="SplashScreenDelay" value="5000"/>
+
+  <preference name="FadeSplashScreenDuration" value="500"/>

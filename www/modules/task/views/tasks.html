@@ -1,0 +1,75 @@
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Tasks
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-view view-title="Tasks">
+    <ion-content class="has-header">
+
+        <div class="item item-input-inset" ng-show="searchShow">
+            <label class="item-input-wrapper search">
+                <input ng-model="query" type="text" placeholder="Search">
+            </label>
+            <button class="button button-small ion ion-search" ng-click="search(query)"></button>
+        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="task in tasks" >
+                <div class="row" ui-sref="admin.editTask({id:task.id})">
+                    <div class="col col-20">
+                        <img ng-src="{{task.user.avatar_url !=='' && ngLaravelBackEndFileURL+task.user.avatar_url || ngLaravelBackEndFileURL+'no_avatar.jpg'}}" class="avatar" alt="avatar" fallback-src="{{'img/broken/broken-link-100x100.png'}}">
+                    </div>
+                    <div class="col col-50">
+                        <h2>{{task.title}}</h2>
+                        <p>{{task.category.name}}</p>
+                    </div>
+                    <div class="col col-33">
+                        <p>{{task.task_status === 0 ? "Open" : "Close"}}</p>
+                        <p am-time-ago="task.created_at | amUtc | amLocal"></p>
+                    </div>
+                    <div class="col col-10">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-checked="selection.indexOf(task.id) > -1" ng-click="toggleSelection(task.id)">
+                        </label>
+                    </div>
+                </div>
+                <ion-option-button class="button  button-stable icon ion-edit"
+                                   ui-sref="admin.editTask({id:task.id})" show-if-has-permit="edit_task"></ion-option-button>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                distance="5"
+                on-infinite="pageChanged()"
+                ng-if="pagination.current_page < pagination.last_page"
+                spinner="android">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+
+<button id="fab" class="button button-assertive button-fab button-fab-bottom-right"  ui-sref="admin.createTask" show-if-has-permit="add_task">
+    <i class="icon ion-plus-round"></i>
+</button>
+
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="customTrans">
+        <ion-content>
+            <div class="list" ng-click="popover.hide()">
+                <a class="item" ng-click="toggleSearch()">
+                    <i class="ion ion-search"></i>
+                    Search
+                </a>
+                <a class="item" ng-click="delete(selection)" show-if-has-permit="delete_task">
+                    <i class="ion ion-trash-a"></i>
+                    Delete
+                </a>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>

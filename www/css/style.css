@@ -1,0 +1,736 @@
+/* Utilities */
+/* BEGIN Thin */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Thin/RobotoDraft-Thin.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Thin/RobotoDraft-Thin.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Thin/RobotoDraft-Thin.ttf?v=1.0.0") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* END Thin */
+/* BEGIN Light */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Light/RobotoDraft-Light.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Light/RobotoDraft-Light.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Light/RobotoDraft-Light.ttf?v=1.0.0") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* END Light */
+/* BEGIN Regular */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.ttf?v=1.0.0") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Regular/RobotoDraft-Regular.ttf?v=1.0.0") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.ttf?v=1.0.0") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Italic/RobotoDraft-Italic.ttf?v=1.0.0") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* END Italic */
+/* BEGIN Medium */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Medium/RobotoDraft-Medium.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Medium/RobotoDraft-Medium.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Medium/RobotoDraft-Medium.ttf?v=1.0.0") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* END Medium */
+/* BEGIN Bold */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.ttf?v=1.0.0") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Bold/RobotoDraft-Bold.ttf?v=1.0.0") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.ttf?v=1.0.0") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/BoldItalic/RobotoDraft-BoldItalic.ttf?v=1.0.0") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* END Bold Italic */
+/* BEGIN Black */
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/RobotoDraft/Black/RobotoDraft-Black.woff2?v=1.0.0") format("woff2"), url("../fonts/RobotoDraft/Black/RobotoDraft-Black.woff?v=1.0.0") format("woff"), url("../fonts/RobotoDraft/Black/RobotoDraft-Black.ttf?v=1.0.0") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+.link {
+    color: #116262;
+    font-weight: bold;
+}
+
+h4 {
+    color: #116262;
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+h4:first-child {
+    border-top: none;
+    padding-top: initial;
+}
+
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.no-border {
+    border: none;
+}
+
+.static {
+    position: static;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.border-top {
+    border-top: solid 1px #ccc;
+    padding-top: 30px;
+}
+
+.blue-grey-900 {
+    background-color: #263238 !important;
+    color: #fff;
+}
+
+/* Menu */
+
+.menu .bar.bar-header.expanded {
+    background-image: url('../img/material-graphite.jpg');
+    background-size: 120%;
+    background-position: 0%;
+    transition: all .5s ease-in-out;
+}
+
+.menu.menu-left * {
+    font-weight: bold;
+}
+
+.item-radio input:checked ~ .item-content {
+    background: transparent;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+.item.item-radio .radio-icon {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.item.item-radio:active .radio-icon {
+    opacity: 0;
+    transform: scale(1.6);
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.directions.button-bar {
+    margin: 0 auto;
+    width: 33.333%;
+}
+
+.directions.button-bar button {
+    line-height: 26px;
+}
+
+.ion-arrow-right-c.top-left:before {
+    transform: rotate(-135deg);
+}
+
+.ion-arrow-right-c.top-right:before {
+    transform: rotate(-45deg);
+}
+
+.ion-arrow-right-c.bottom-left:before {
+    transform: rotate(-225deg);
+}
+
+.ion-arrow-right-c.bottom-right:before {
+    transform: rotate(45deg);
+}
+
+#modal {
+    background-color: #ef4e3a;
+    border-radius: 100%;
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    height: 50%;
+    bottom: 0;
+    opacity: 0;
+    width: 700px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.expand #modal {
+    background-color: #DBDBDB;
+    border-radius: 0;
+    border-top: solid 4px #ef4e3a;
+    opacity: 1;
+    z-index: 9;
+}
+
+/* CODE */
+
+.code {
+    color: #333;
+    font-family: monospace;
+    padding: 10px;
+    white-space: pre;
+}
+
+.code-wrapper {
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+.code-wrapper::before {
+    color: #1B5E20;
+    font-family: "Ionicons";
+    speak: none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: '\f216 ';
+}
+
+.code-wrapper.active::before {
+    content: '\f207 ';
+}
+
+.code-wrapper .toggle {
+    color: #4CAF50;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 8px;
+    text-decoration: underline;
+}
+
+.code-wrapper .code {
+    opacity: 0;
+    margin-top: -20px;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: 0.1s all ease-in-out;
+    z-index: 9999999999;
+}
+
+.code-wrapper.code-wrapper-last .code {
+    position: relative;
+}
+
+.code-wrapper.active .code {
+    background: #f9f9f9;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    left: 16px;
+    height: initial;
+    margin-top: 15px;
+    padding: 15px;
+    right: 16px;
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
+    width: initial;
+}
+
+.app-icon {
+    background-color: #fff;
+    background: url('../img/logo2.png') center;
+    background-size: cover;
+    /*border-radius: 50%;*/
+    height: 150px;
+    margin: 0 auto;
+    width: 250px;
+}
+
+.login-pl::-webkit-input-placeholder {
+    color: rgb(248, 248, 248);
+}
+
+.login-pl:-moz-placeholder { /* Firefox 18- */
+    color: rgb(248, 248, 248);
+}
+
+.login-pl::-moz-placeholder { /* Firefox 19+ */
+    color: rgb(248, 248, 248);
+}
+
+.login-pl:-ms-input-placeholder {
+    color: rgb(248, 248, 248);
+}
+
+/*
+* list menu color font
+*/
+.list {
+    color: #444;
+    height: auto;
+}
+
+/*
+* padding list popover
+*/
+.list .more {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/*
+ * popover size height
+ */
+.popover {
+    height: auto !important;
+}
+
+.popover ion-header-bar {
+    position: relative;
+}
+
+.popover ion-content {
+    top: 0;
+    position: relative;
+}
+
+.popover-inner-content {
+    width: 100%;
+    padding: 5px 20px;
+}
+
+/*
+ * SEARCH
+ */
+.searchBar {
+    color: #fff;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.searchBar .icon {
+    font-size: 27px;
+    line-height: 1.2;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.searchBar .searchTxt {
+    border-bottom: 1px solid #fff;
+    left: 55px;
+    width: calc(100% - 100px);
+    position: fixed;
+    height: calc(100% - 10px);
+}
+
+.searchBar.numicons2 .searchTxt {
+    width: calc(100% - 135px);
+}
+
+.searchBar .searchTxt > .bgdiv {
+    background-color: #aaa;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.searchBar .searchTxt > .bgtxt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.searchBar .searchTxt input {
+    background-color: inherit;
+    color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*
+ * Yep Custom CSS
+ *
+ */
+.bar.bar-assertive {
+    background-color: #B71C1C;
+}
+
+/* General css */
+.fieldset-no-border {
+    border: 0;
+}
+
+.spinner svg {
+    width: 28px;
+    height: 28px;
+    stroke: #e62c37;
+    fill: #e62c37;
+}
+
+.list.with-hover .item:hover {
+    background-color: #e8e8e8;
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.transparent .item.item-complex .item-content {
+    background-color: transparent;
+}
+
+.transparent ion-item.item.item-complex {
+    background-color: transparent;
+}
+
+fieldset {
+    border: none;
+}
+
+.item-input-inset .item-input-wrapper.search input {
+    height: 37px;
+}
+
+.color-white {
+    color: #fff !important;
+}
+
+/* ion-autocomplete */
+.ion-autocomplete-cancel {
+    color: #000 !important;
+}
+
+/* Image responsive */
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Progress Bar */
+
+progress[value] {
+    /* Get rid of the default appearance */
+    appearance: none;
+
+    /* This unfortunately leaves a trail of border behind in Firefox and Opera. We can remove that by setting the border to none. */
+    border: none;
+
+    /* Add dimensions */
+    width: 100%;
+    height: 5px;
+
+    /* Although firefox doesn't provide any additional pseudo class to style the progress element container, any style applied here works on the container. */
+    background-color: whiteSmoke;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+
+    /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
+    color: royalblue;
+
+    position: relative;
+    margin: 0 0 1.5em;
+}
+
+/*
+Webkit browsers provide two pseudo classes that can be use to style HTML5 progress element.
+-webkit-progress-bar -> To style the progress element container
+-webkit-progress-value -> To style the progress element value.
+*/
+
+progress[value]::-webkit-progress-bar {
+    background-color: whiteSmoke;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    position: relative;
+
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    border-radius:3px;
+
+    /* Let's animate this */
+    animation: animate-stripes 5s linear infinite;
+}
+
+@keyframes animate-stripes { 100% { background-position: -100px 0; } }
+
+/* Let's spice up things little bit by using pseudo elements. */
+
+progress[value]::-webkit-progress-value:after {
+    /* Only webkit/blink browsers understand pseudo elements on pseudo classes. A rare phenomenon! */
+    content: '';
+    position: absolute;
+
+    width:5px; height:5px;
+    top:7px; right:7px;
+
+    background-color: white;
+    border-radius: 100%;
+}
+
+/* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
+
+progress[value]::-moz-progress-bar {
+    /* Gradient background with Stripes */
+    background-image:
+            -moz-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -moz-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -moz-linear-gradient( left, #09c, #f44);
+
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    border-radius:3px;
+
+    /* Firefox doesn't support CSS3 keyframe animations on progress element. Hence, we did not include animate-stripes in this code block */
+}
+
+/* Fallback technique styles */
+.progress-bar {
+    background-color: whiteSmoke;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+
+    /* Dimensions should be similar to the parent progress element. */
+    width: 100%; height:20px;
+}
+
+.progress-bar span {
+    background-color: royalblue;
+    border-radius: 3px;
+
+    display: block;
+    text-indent: -9999px;
+}
+
+p[data-value] {
+
+    position: relative;
+}
+
+/* The percentage will automatically fall in place as soon as we make the width fluid. Now making widths fluid. */
+
+p[data-value]:after {
+    content: attr(data-value) '%';
+    position: absolute; right:0;
+}
+
+
+
+
+
+.html5::-webkit-progress-value,
+.python::-webkit-progress-value  {
+    /* Gradient background with Stripes */
+    background-image:
+            -webkit-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -webkit-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -webkit-linear-gradient( left, #09c, #f44);
+}
+
+.css3::-webkit-progress-value,
+.php::-webkit-progress-value
+{
+    /* Gradient background with Stripes */
+    background-image:
+            -webkit-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -webkit-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -webkit-linear-gradient( left, #09c, #ff0);
+}
+
+.jquery::-webkit-progress-value,
+.node-js::-webkit-progress-value
+{
+    /* Gradient background with Stripes */
+    background-image:
+            -webkit-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -webkit-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -webkit-linear-gradient( left, #09c, #690);
+}
+
+/* Similarly, for Mozillaa. Unfortunately combining the styles for different browsers will break every other browser. Hence, we need a separate block. */
+
+.html5::-moz-progress-bar,
+.php::-moz-progress-bar {
+    /* Gradient background with Stripes */
+    background-image:
+            -moz-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -moz-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -moz-linear-gradient( left, #09c, #f44);
+}
+
+.css3::-moz-progress-bar,
+.php::-moz-progress-bar {
+/* Gradient background with Stripes */
+    background-image:
+            -moz-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -moz-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -moz-linear-gradient( left, #09c, #ff0);
+}
+
+.jquery::-moz-progress-bar,
+.node-js::-moz-progress-bar {
+    /* Gradient background with Stripes */
+    background-image:
+            -moz-linear-gradient( 135deg,
+            transparent,
+            transparent 33%,
+            rgba(0,0,0,.1) 33%,
+            rgba(0,0,0,.1) 66%,
+            transparent 66%),
+            -moz-linear-gradient( top,
+            rgba(255, 255, 255, .25),
+            rgba(0,0,0,.2)),
+            -moz-linear-gradient( left, #09c, #690);
+}
+
+/* Menu Side menu left */
+.yep.item-icon-left .icon {
+    left: 23px;
+}
+.yep.item-complex.item-icon-left .item-content{
+    padding-left: 61px;
+}
+.yep.item-complex .item-content, .item-radio .item-content{
+    padding: 16px 49px 7px 9px;
+}
+
+/* Map css */
+#map {
+    height: 100%;
+    width: 100%;
+}
+.scroll {
+    height: 100%;
+}
+
+
+
+
+.header .col {
+    background-color:lightgrey;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}

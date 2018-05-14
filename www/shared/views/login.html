@@ -1,0 +1,45 @@
+<style>
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #6a000f;
+        opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #6a000f;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #6a000f;
+    }
+</style>
+<ion-view title="LOGIN" hide-nav-bar="true" ng-controller="LoginCtrl">
+    <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false" style="background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h2 class="light" style="color: #6a000f;">Bitácora</h2>
+                <!-- <p class="stable">Bitácora</p> -->
+            </div>
+        </div>
+        <form ng-submit="signin()" role="form" autocomplete="off">
+            <div class="list">
+                <div class="card" ng-if="signinError.data.error">
+                    <div class="item item-text-wrap assertive">
+                        <strong>Error: </strong> {{signinError.data.error}}
+                        <br>Intente de nuevo
+                    </div>
+                </div>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable" style="color: #6a000f;">Email</span>
+                    <input ng-model="user.email" type="Email" placeholder="Email" class="">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable" style="color: #6a000f;">Password</span>
+                    <input ng-model="user.password" type="password" placeholder="Password" class="">
+                </label>
+            </div>
+            <button type="submit" class="button button-full button-assertive ink" style="background-color: #6a000f;">Ingresar</button>
+        </form>
+        <!-- <button ui-sref="forget" class="button button-full button-clear button-light" style="color: #6a000f;">Olvido su contraseña?</button> -->
+    </ion-content>
+</ion-view>

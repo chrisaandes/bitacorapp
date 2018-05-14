@@ -1,0 +1,232 @@
+<style type="text/css">
+    .fc-axis
+    {
+       display:none !important;
+    }
+
+    .fc-time{
+        display : none;
+    }
+
+      
+    table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.8em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.5em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+    </style>
+<ion-nav-bar class="bar-assertive" style="background-color: #B71C1C;" >
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        Registro
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-android-more-vertical" ng-click="popover.show($event)"></button>
+    </ion-nav-buttons> -->
+</ion-nav-bar>
+<ion-view>
+    <ion-content class="has-header">
+        <div class="content double-padding">
+            <div class="list">
+                    
+                <label class="item item-input item-select"  ng-if="!byUser">
+                    <div class="input-label">
+                            Profesor
+                    </div>
+                    <select class="form-control" ng-model="profesor" ng-change="init(profesor)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in profesores">{{value.name}}</option>
+                    </select>  
+                </label>
+
+                <label class="item item-input item-select" ng-if="byUser">
+                    <div class="input-label">
+                            Profesor
+                    </div>
+                    <select class="form-control" ng-model="profesor" ng-change="init(profesor)" id="franjafilter">
+                        <option value="{{value.id}}" ng-repeat="value in profesores  | filter:{ id: profile.id }">{{value.name}}</option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                            Grupo
+                    </div>
+                    <select class="form-control" ng-model="grupo" ng-change="selectGroup(grupo)" id="franjafilter">
+                            <option value="{{value.id}}" ng-repeat="value in grupos">{{value.name}}</option>
+                    </select> 
+                </label>
+            
+            </div>  
+            <HR>   
+            
+            <button class="button button-full button-positive" type="button" ng-click="showRegistrar()">
+                Registrar Horas
+            </button>
+            
+            
+            <div class="list" ng-show="registrarHora">
+                    
+                <label class="item item-input-inset item-select "  ng-if="!edit">
+                    <div class="input-label">
+                            Horario
+                    </div>
+                    <select class="form-control" ng-model="hora.id" >
+                        <option value="{{value.id}}" ng-repeat="value in horarios.horas | filter: getItemsFromThePast" ng-if="!value.user_id" ng-bind="formatDate(value.dia)"></option>
+                    </select> 
+                </label>
+
+                <label class="item item-input-inset item-select"  ng-if="edit">
+                    <div class="input-label">
+                            Horario
+                    </div>
+                    <select class="form-control" ng-model="hora.id" >
+                        <option value="{{value.id}}" ng-repeat="value in horarios.horas" ng-bind="formatDate(value.dia)"></option>
+                    </select> 
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Horas</span>
+                    <input  placeholder="Horas" ng-model="hora.horas" type="number" min="1"  max="{{horarios.horas_diarias}}" class="form-control" id="horas" limit-to-max/>
+                </label>
+               
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Asistencia</span>
+                    <input placeholder="Asistencia" ng-model="hora.asistencia" type="text" class="form-control" id="asist" />
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Observación</span>
+                    <textarea placeholder="Observación" ng-model="hora.observacion" id="obs" class="form-control" ></textarea>
+                </label>
+                
+
+                <p style="color:red" ng-if="horarioValidation"><b>Campo Horario obligatorio</b></p>
+                <p style="color:red" ng-if="horasValidation"><b>Campo Horas obligatorio</b></p>
+                <p style="color:red" ng-if="asistValidation"><b>Campo Asistencia obligatorio</b></p>
+                <p style="color:red" ng-if="obsValidation"><b>Campo Observación obligatorio</b></p>
+
+
+                <button class="button button-positive button-small" ng-click="registrar()" ng-if="!createHoraForm" ng-show="!isSaving"  class="btn btn-success" ng-class="{'working':isDisabled===true}"> Guardar</button>
+                <button class="button button-positive button-small" ng-click="update()" ng-if="createHoraForm"  class="btn btn-success" ng-class="{'working':isDisabled===true}"> Actualizar</button>
+                <button class="button button-assertive button-small" ng-click="cancelForm()"    class="btn btn-info" ng-class="{'working':isDisabled===true}"> Cancelar</button>
+            </div>
+           
+
+            <table class="table" ng-show="!registrarHora">
+               
+                <tr>
+                    <th>Fecha</th>
+                    <th>Horas</th>
+                    <th>Asist</th>
+                    <th>Prof.</th>                            
+                    <th>Obser.</th>                            
+                    <th></th>
+                    <th></th>
+                </tr>
+                
+                <tbody>
+                <tr ng-repeat="category in horarios.horas">
+                    <td ng-bind="formatDate(category.dia)"></td>
+                    <td>{{category.horas || '-'}}</td>
+                    <td>{{category.asistencia || '-'}}</td>
+                    <td>{{category.user.name || '-'}}</td>                            
+                    <td>{{category.observacion || '-'}}</td>                            
+                    <td>
+                        <a href="javascript:void(0)" style="font-size: xx-large;text-decoration: none;" data-target="#" ng-click="editHora(category)" ng-if="category.user_id" show-if-has-any-permit="edit_hora" >
+                            <i class="ion ion-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" style="font-size: xx-large;text-decoration: none;" data-target="#" ng-click="deleteHora(category)" confirm='Are you sure?' ng-if="category.user_id" show-if-has-any-permit="delete_hora" >
+                            <i class="ion ion-trash-b"></i>
+                        </a> 
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p ng-if="emptyHorarios">Sin Horarios</p>
+        </div>
+
+       
+    </ion-content>
+</ion-view>
